@@ -1,7 +1,6 @@
-const filmesJson = require("./data/ghibli.json")
+/* const filmesJson = require("./data/ghibli.json")
 const express = require("express")
 const cors = require("cors")
-
 const app = express() //executando o express
 
 app.use(cors())
@@ -19,15 +18,6 @@ app.get("/filmes", (request, response)=>{
     response.status(200).send(filmesJson)
 })
 
-app.get("/filmes/buscar/:id", (request, response)=>{
-    let idRequest = request.params.id
-
-    let filmeEncontrado = filmesJson.find(filme => filme.id == idRequest)
-
-    response.status(200).send(filmeEncontrado)
-})
-
-
 app.get("/filmes/filtro", (request, response)=>{
     let tituloRequest = request.query.titulo.toLocaleLowerCase()
     console.log(tituloRequest)
@@ -40,6 +30,16 @@ app.get("/filmes/filtro", (request, response)=>{
     response.status(200).send(filmeEncontrado)
 
 })
+
+app.get("/filmes/buscar/:id", (request, response)=>{
+    let idRequest = request.params.id
+
+    let filmeEncontrado = filmesJson.find(filme => filme.id == idRequest)
+
+    response.status(200).send(filmeEncontrado)
+})
+
+
 
 app.post("/filmes", (request, response)=>{
     let tituloRequest = request.body.title
@@ -58,8 +58,11 @@ app.post("/filmes", (request, response)=>{
             "mensagem": "filme cadastrado com sucesso",
             novoFilme
         }])
-})
+}) */
 
-app.listen(3030, ()=>{
-    console.log("alo, pepe moreno? to na porta 3030")
-})
+const app = require("./src/app");
+const PORT = 3030;
+
+app.listen(PORT, () => {
+  console.log(`Servidor conectado na porta ${PORT}.`);
+});

@@ -1,15 +1,6 @@
-const express = require("express");
-const app = express();
+const app = require("./src/app");
+const PORT = 8080;
 
-app.get("/", (request, response)=>{
-    response.status(200).json(["salve Mundão"])
-})
-
-app.get("/oi", (request, response)=>{
-    response.status(200).json(["ola"])
-})
-
-
-app.listen(8080, ()=>{
-    console.log("eita, meu servidor ta rodando na porta 8080")
-})
+app.listen(PORT, () => {
+  console.log("Servidor conectado na porta 8080.");
+});
